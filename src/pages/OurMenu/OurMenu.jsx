@@ -7,34 +7,33 @@ import useMenu from '../hooks/useMenu';
 import desert from '../../assets/menu/dessert-bg.jpeg';
 import pizza from '../../assets/menu/pizza-bg.jpg';
 import soup from '../../assets/menu/soup-bg.jpg';
-import salad from '../../assets/menu/salad-bg.jpg'; // Added missing import for salad background image
+import salad from '../../assets/menu/salad-bg.jpg';
 
 const OurMenu = () => {
     const [menu] = useMenu();
     const desserts = menu.filter(item => item.category === 'dessert');
     const offered = menu.filter(item => item.category === 'offered');
-    const salads = menu.filter(item => item.category === 'salad'); // Changed 'salad' to 'salads' to match the filter name
+    const salads = menu.filter(item => item.category === 'salad');
     const soups = menu.filter(item => item.category === 'soup');
     const pizzas = menu.filter(item => item.category === 'pizza');
 
     return (
         <div>
-            <Cover img={banner} title={'Our Menu'} description={'Would you like to try a dish?'}></Cover>
+            <Cover img={banner} title={'Our Menu'} description={'Would you like to try a dish?'} />
 
-            <SectionTitle subHeading={`Don't miss`} heading={`TODAY'S OFFER`}></SectionTitle>
+            <SectionTitle subHeading={`Don't miss`} heading={`TODAY'S OFFER`} />
             <MenuCategory items={offered} />
 
-            <Cover img={desert} title={'DESSERTS'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></Cover>
-            <MenuCategory items={desserts} />
+            <MenuCategory items={desserts} img={desert} title="dessert" />
 
-            <Cover img={pizza} title={'PIZZA'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></Cover>
-            <MenuCategory items={pizzas} />
+            {/* <Cover img={pizza} title={'pizza'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} /> */}
+            <MenuCategory items={pizzas} img={pizza} title="pizza" />
 
-            <Cover img={salad} title={'SALAD'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></Cover>
-            <MenuCategory items={salads} />  {/* Changed 'salad' to 'salads' to match the filter name */}
+            {/* <Cover img={salad} title={'salad'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} /> */}
+            <MenuCategory items={salads} img={salad} title="salad" />
 
-            <Cover img={soup} title={'SOUP'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'}></Cover>
-            <MenuCategory items={soups} />  {/* Changed 'soups' to 'soups' to match the filter name */}
+            {/* <Cover img={soup} title={'soup'} description={'Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'} /> */}
+            <MenuCategory items={soups} img={soup} title="soup" />
         </div>
     );
 };
